@@ -69,3 +69,8 @@ $ PYTHONPATH=. python3 src/run.py  --inference  # 챗봇 실행
 ## 📚 참고
   - [Attention is All You Need](https://arxiv.org/abs/1706.03762)
   - TensorFlow 공식 문서 및 튜토리얼
+
+
+## 📝 Transformer 구조 정리
+  - 자세한 구현 및 설명은 아래 문서를 참고:
+  [Transformer](https://scratched-bedbug-41b.notion.site/Transformer-20949b64dbf580c38cfade8b185ad3c1?source=copy_link)

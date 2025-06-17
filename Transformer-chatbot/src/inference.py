@@ -40,17 +40,27 @@ def evaluate(sentence):
     sentence = tf.expand_dims(START_TOKEN + encoded + END_TOKEN, axis=0)
     output = tf.expand_dims(START_TOKEN, 0)
 
+    prev_token = None  # 직전 예측 토큰 저장
+
     for _ in range(MAX_LENGTH):
         predictions = model([sentence, output], training=False)
-        predictions = predictions[:, -1:, :]
+        predictions = predictions[:, -1:, :]  # 마지막 시점의 결과
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
 
+        # 종료 조건 1: EOS 토큰 예측
         if tf.equal(predicted_id, END_TOKEN[0]):
             break
 
+        # 종료 조건 2: 이전 토큰과 같으면 반복 중단
+        if prev_token is not None and tf.equal(predicted_id, prev_token):
+            print("⚠️ 동일한 토큰 반복 감지. 강제 종료.")
+            break
+
         output = tf.concat([output, predicted_id], axis=-1)
+        prev_token = predicted_id  # 현재 토큰을 저장
 
     return tf.squeeze(output, axis=0)
+
 
 def predict(sentence):
     prediction = evaluate(sentence)
@@ -62,6 +72,9 @@ def predict(sentence):
 
     print('Input: {}'.format(sentence))
     print('Output: {}'.format(predicted_sentence))
+    
+    print("Raw prediction:", prediction.numpy().tolist())
+    print("Filtered:", [i for i in prediction if i < tokenizer.vocab_size])
 
     return predicted_sentence
 
