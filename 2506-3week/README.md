@@ -1,3 +1,11 @@
+## 📄 파일명: 0616_multiprocessing.py
+
+### ✅ 실행
+```bash
+    python3 0616_multiprocessing.py
+```
+
+---
 
 ## 📄 파일명: 0617_Ray-test.py
 
@@ -8,20 +16,17 @@
     source ray_env/bin/activate  # Windows: ray_env\Scripts\activate
 ```
 
-2. Ray 설치
+2. Ray 설치 및 확인
 ```bash
     pip install -U "ray[default]"
-```
-
-3. Ray 설치 확인
-```bash
     python -c "import ray; print(ray.__version__)"   # 2.46.0
 ```
 
-4. 파일 실행
+3. 파일 실행
 ```bash
     python3 0617_Ray-test.py    
 ```
+
 
 ### 🔗 출력 예시
 
@@ -38,5 +43,14 @@
 ```
 
 📌 .remote()를 통해 병렬 실행된 함수들이 거의 동시에 실행되었음을 확인할 수 있음
+
 📌 ray.get()으로 ObjectRef에서 실제 결과를 동기적으로 수집함
+
 📌 Dashboard는 기본적으로 http://127.0.0.1:8265에서 실행됨 (에러 발생 시 include_dashboard=False로 끌 수 있음)
+
+---
+
+## 📝 2506-3weeks 공부 내용 정리
+  [병렬처리](https://jihye0e.tistory.com/21)
+  
+  [Ray-병렬/분산처리](https://jihye0e.tistory.com/22)
