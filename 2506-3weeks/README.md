@@ -90,7 +90,7 @@
 ```
 
 ### 🔗 출력 예시
-
+![Image](https://github.com/user-attachments/assets/cc2b45ea-9727-4f77-af22-f32bdaf8c910)
 
 ---
 
