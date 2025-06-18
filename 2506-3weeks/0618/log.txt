@@ -1,0 +1,25 @@
+[OK] normal_data.csv: shape=(200, 13), columns=['id', 'value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'id_date', 'id_time', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] pipe_column.csv: shape=(200, 9), columns=['id', 'extra', 'info_0', 'info_1', 'info_2', 'id_date', 'id_time', 'extra_date', 'extra_time']
+[OK] inconsistent_cols.csv: shape=(150, 4), columns=['name', 'score', 'score_date', 'score_time']
+[Skip] Empty file(0 byte): empty_file.csv
+[OK] noisy_data.csv: shape=(200, 10), columns=['value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] normal_data.csv: shape=(200, 13), columns=['id', 'value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'id_date', 'id_time', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] pipe_column.csv: shape=(200, 9), columns=['id', 'extra', 'info_0', 'info_1', 'info_2', 'id_date', 'id_time', 'extra_date', 'extra_time']
+[OK] inconsistent_cols.csv: shape=(150, 4), columns=['name', 'score', 'score_date', 'score_time']
+[Skip] Empty file(0 byte): empty_file.csv
+[OK] noisy_data.csv: shape=(200, 10), columns=['value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] normal_data.csv: shape=(200, 13), columns=['id', 'value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'id_date', 'id_time', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] pipe_column.csv: shape=(200, 9), columns=['id', 'extra', 'info_0', 'info_1', 'info_2', 'id_date', 'id_time', 'extra_date', 'extra_time']
+[OK] inconsistent_cols.csv: shape=(150, 4), columns=['name', 'score', 'score_date', 'score_time']
+[Skip] Empty file(0 byte): empty_file.csv
+[OK] noisy_data.csv: shape=(200, 10), columns=['value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] normal_data.csv: shape=(200, 13), columns=['id', 'value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'id_date', 'id_time', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] pipe_column.csv: shape=(200, 9), columns=['id', 'extra', 'info_0', 'info_1', 'info_2', 'id_date', 'id_time', 'extra_date', 'extra_time']
+[OK] inconsistent_cols.csv: shape=(150, 4), columns=['name', 'score', 'score_date', 'score_time']
+[Skip] Empty file(0 byte): empty_file.csv
+[OK] noisy_data.csv: shape=(200, 10), columns=['value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] normal_data.csv: shape=(200, 13), columns=['id', 'value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'id_date', 'id_time', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
+[OK] pipe_column.csv: shape=(200, 9), columns=['id', 'extra', 'info_0', 'info_1', 'info_2', 'id_date', 'id_time', 'extra_date', 'extra_time']
+[OK] inconsistent_cols.csv: shape=(150, 4), columns=['name', 'score', 'score_date', 'score_time']
+[Skip] Empty file(0 byte): empty_file.csv
+[OK] noisy_data.csv: shape=(200, 10), columns=['value', 'time_0', 'time_1', 'time_2', 'time_3', 'time_4', 'value_date', 'value_time', 'time_0_date', 'time_0_time']
