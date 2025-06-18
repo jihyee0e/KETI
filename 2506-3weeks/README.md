@@ -5,6 +5,7 @@
     python -m venv 가상환경명
     source 가상환경명/bin/activate  
 ```
+<br>
 
 ## 📄 파일명: 0616_multiprocessing.py
 
@@ -12,7 +13,7 @@
 ```bash
     python3 0616_multiprocessing.py
 ```
-
+<br>
 
 ## 📄 파일명: 0617_Ray-test.py
 
@@ -31,16 +32,13 @@
 ### 🔗 출력 예시
 
 ![Image](https://github.com/user-attachments/assets/8a471566-f550-46fa-ad71-9637d55cbde3)
-
 ![Image](https://github.com/user-attachments/assets/b94f7021-a0cb-4405-bcbc-4aa8d11978ee)
 
-
 - .remote()를 통해 병렬 실행된 함수들이 거의 동시에 실행되었음을 확인할 수 있음
-
 - ray.get()으로 ObjectRef에서 실제 결과를 동기적으로 수집함
-
 - Dashboard는 기본적으로 http://127.0.0.1:8265에서 실행됨 (에러 발생 시 include_dashboard=False로 끌 수 있음)
 
+<br>
 
 ## 📄 폴더명: 0618
 
