@@ -30,17 +30,10 @@
 
 ### 🔗 출력 예시
 
-```
-2025-06-17 15:07:38,358 INFO worker.py:1879 -- Started a local Ray instance. View the dashboard at 127.0.0.1:8265 
-(print_current_time pid=4754) 2025-06-17 15:07:46.837682
-(print_current_time pid=4756) 2025-06-17 15:07:46.837779
-(print_current_time pid=4755) 2025-06-17 15:07:46.837728
-(print_current_time pid=4753) 2025-06-17 15:07:46.837768
-결과:  [datetime.datetime(2025, 6, 17, 15, 7, 46, 837728), 
-       datetime.datetime(2025, 6, 17, 15, 7, 46, 837779), 
-       datetime.datetime(2025, 6, 17, 15, 7, 46, 837682), 
-       datetime.datetime(2025, 6, 17, 15, 7, 46, 837768)]
-```
+![Image](https://github.com/user-attachments/assets/8a471566-f550-46fa-ad71-9637d55cbde3)
+
+![Image](https://github.com/user-attachments/assets/b94f7021-a0cb-4405-bcbc-4aa8d11978ee)
+
 
 - .remote()를 통해 병렬 실행된 함수들이 거의 동시에 실행되었음을 확인할 수 있음
 
