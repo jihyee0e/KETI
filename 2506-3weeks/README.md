@@ -49,13 +49,13 @@
 
 ### 📂 폴더 구조
 ```
-0618/   
-├── data/
-│   ├── raw/   # 생성된 원본 CSV 파일
-│   └── processed/   # 전처리 파일 저장 
-├── log.txt  # 처리 결과 로그 기록
-├── preprocess.py # 병렬 전처리 스크립트
-└── generate_dataset.py  # 연습용 데이터 생성 스크립트
+    0618/   
+    ├── data/
+    │   ├── raw/   # 생성된 원본 CSV 파일
+    │   └── processed/   # 전처리 파일 저장 
+    ├── log.txt  # 처리 결과 로그 기록
+    ├── preprocess.py # 병렬 전처리 스크립트
+    └── generate_dataset.py  # 연습용 데이터 생성 스크립트
 
 ```
 
@@ -82,6 +82,61 @@
 
 ### 🔗 출력 예시
 ![Image](https://github.com/user-attachments/assets/cc2b45ea-9727-4f77-af22-f32bdaf8c910)
+
+<br>
+
+## 📄 폴더명: 0619
+
+### 📌 목적
+- MinIO 데이터 구조 로컬 실습
+- 일반 사용자 계정에서 MinIO Web UI 및 CLI 사용 권한 테스트
+- Web UI 버킷 목록 표시, 객체 다운로드, 정책 적용 흐름 확인
+
+
+### 📂 폴더 구조
+```
+    0619/
+    ├── data/
+    │   ├── .minio.sys/          # MinIO 내부 시스템 
+    │   ├── mybucket-test1/      # 테스트 버킷1 
+    │   ├── mybucket-test2/      # 테스트 버킷2 
+    ├── test_files/              # testuser 계정으로 다운로드한 결과
+    │   └── mybucket-test1/
+    │       ├── Finance_data.csv
+    │       └── 아카이브.zip
+    ├── minio                    # MinIO 실행 파일
+    └── README.md
+```
+
+### ✅ 실행 순서 or 과정
+1. MinIO 실행
+```bash
+    MINIO_ROOT_USER=rootID MINIO_ROOT_PASSWORD=rootPW ./minio server ./data
+```
+
+2. 관리자 계정 등록 및 정책 부여
+```bash
+    mc alias set myminio http://localhost:9000 rootID rootPW
+    mc admin user add myminio testID testPW
+    mc admin policy attach myminio readwrite --user testID
+```
+
+3. Web UI 접속
+```
+    주소: http://localhost:9000
+    계정: testID / testPW -> 버킷 목록 및 객체 접근 확인
+```
+
+4. CLI로 데이터 다운로드 테스트
+```
+    mc alias set testminio http://localhost:9000 testID testPW
+    mc cp --recursive testminio/bucket이름 ./데이터저장파일명
+```
+
+### 🧾 비고
+- 커스텀 정책(ui-admin.json)은 mc admin policy create에서 지원되지 않아 실패
+- MinIO 최신 버전에서는 s3:*, s3:GetObject 등 대부분의 액션 직접 명시 불가
+- 실질적으로 Web UI 및 CLI 동작 확인엔 readwrite 정책이 안정적이
 
 ---
 
