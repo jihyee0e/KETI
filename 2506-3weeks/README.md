@@ -146,3 +146,6 @@
   [Ray-병렬/분산처리](https://jihye0e.tistory.com/22)
 
   [다양한 데이터 구조 전처리](https://jihye0e.tistory.com/23)
+
+  [MinIO](https://jihye0e.tistory.com/24)
+  [MinIO-흐름 따라가기](https://jihye0e.tistory.com/25)
