@@ -30,6 +30,8 @@ __pycache__/
 .vscode/
 
 # MinIO 서버 데이터 (절대 올리면 안 됨)
-2506-3weeks/0619/data/
-2506-3weeks/0619/minio
-2506-3weeks/0619/test_files/
+2506-week3/0619/data/
+2506-week3/0619/minio
+2506-week3/0619/test_files/
+
+*.txt
