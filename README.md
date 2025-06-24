@@ -5,7 +5,7 @@
 📚 참고: Attention is All You Need, TensorFlow 공식 문서 및 튜토리얼
 ```
 
-### 📂 2506-3weeks
+### 📂 2506-week3
 ```
 👩🏻‍💻 파일명: 0616_multiprocessing.py
 📌 주제: ProcessPoolExecutor 기반 병렬 처리
@@ -24,4 +24,25 @@
 ```
 👩🏻‍💻 폴더명: 0619
 📌 주제: MinIO 데이터 구조 로컬 실습
+```
+
+
+### 📂 2506-week4
+```
+👩🏻‍💻 파일명: 0623_pandasai_test.py
+📌 주제: PandasAI와 Streamlit으로 만드는 데이터 분석 챗봇
+📚 참고: PandasAI 실습 Tistory, Ollama Github
+```
+```
+👩🏻‍💻 파일명: 
+📌 주제: 
+```
+```
+👩🏻‍💻 폴더명: 
+📌 주제: 
+📚 참고: 
+```
+```
+👩🏻‍💻 폴더명: 
+📌 주제:
 ```
