@@ -18,7 +18,7 @@
 
 1. 가상환경에서 필요 라이브러리 설치
 ```bash
-pip install -r requirements.txt
+    pip install -r requirements.txt
 ```
 
 2. LM Studio 실행 후 모델 활성화
@@ -37,6 +37,7 @@ pip install -r requirements.txt
 - 상위 3개 행 미리 보기 출력
 - 자연어로 질문 입력 → PandasAI가 로컬 LLM 통해 답변 생성
     > ⚠️ 컬럼명과 질문을 영어로 하면 더 정확한 답변을 받을 수 있습니다.
+    
       ✏️ 예시: What is the maximum Salary? (컬럼명이 Salary일 때)
 
 ---
