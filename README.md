@@ -33,8 +33,3 @@
 📌 주제: PandasAI와 Streamlit으로 만드는 데이터 분석 챗봇
 📚 참고: PandasAI 실습 Tistory, Ollama Github
 ```
-```
-👩🏻‍💻 폴더명: 
-📌 주제: 
-📚 참고: 
-```
