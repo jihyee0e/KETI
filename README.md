@@ -33,3 +33,8 @@
 📌 주제: PandasAI와 Streamlit으로 만드는 데이터 분석 챗봇
 📚 참고: PandasAI 실습 Tistory, Ollama Github
 ```
+```
+👩🏻‍💻 파일명: (keti-private)
+📌 주제: 로컬 LLM 기반 데이터 분석 Agent
+📚 참고: keti llm 구현 Github code
+```
