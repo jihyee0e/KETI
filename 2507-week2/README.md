@@ -36,6 +36,7 @@
 ### 🔗 출력 예시
 <img width="197" height="33" alt="Image" src="https://github.com/user-attachments/assets/486d8702-06e3-45ec-9ad4-cdcfb946cf03" />
 <img width="552" height="203" alt="Image" src="https://github.com/user-attachments/assets/d54717ca-2d2f-4b3b-ad61-aa5f79013b3f" />
+
 ** 학습 짧게 진행했으므로 성능 차이는 미미하게 보일 수 있음
 ** 실험 확장 시: 더 긴 학습, perplexity, BLEU 평가 등 활용 가능
 
