@@ -7,6 +7,8 @@ import urllib.request
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import pickle
+import re
+import faiss
 
 # Download dataset if not exists
 os.makedirs("data", exist_ok=True)
@@ -18,17 +20,39 @@ urllib.request.urlretrieve(
 # Read the dataset
 train_data = pd.read_csv("data/ChatBotData.csv")
 
+def preprocess_sentence(sentence):
+    sentence = re.sub(r"([?.!,])", r" \\1", sentence)
+    return sentence.strip()
+
+index = faiss.read_index("rag/rag_index.faiss")
+with open("rag/rag_docs.pkl", "rb") as f:
+    documents = pickle.load(f)
+with open("rag/vectorizer.pkl", "rb") as f:
+    vectorizer = pickle.load(f)
+
+# context 검색 함수 정의
+def get_context_for_question(question, top_k=1):
+    query_emb = vectorizer.transform([question]).toarray().astype('float32')
+    _, I = index.search(query_emb, top_k)
+    return "\n".join([documents[i] for i in I[0]])
+
 # Extract questions and answers
 questions = train_data['Q'].tolist()
 answers = train_data['A'].tolist()
+
+questions = [
+    f"문맥: {get_context_for_question(q)}\n질문: {q}\n답변:"
+    for q in questions
+]
+
 
 # Split into train/validation sets
 train_q, val_q, train_a, val_a = train_test_split(questions, answers, test_size=0.2)
 
 # 설정값
-MAX_LENGTH = 40
-BATCH_SIZE = 64
-EPOCHS = 10  # 바꿔주기
+MAX_LENGTH = 80
+BATCH_SIZE = 32
+EPOCHS = 10   # 30~50 사이에서 loss 보고 조절
 D_MODEL = 128
 NUM_LAYERS = 4
 NUM_HEADS = 8
@@ -86,6 +110,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate,
                                      beta_1=0.9,
                                      beta_2=0.98,
                                      epsilon=1e-9)
+# 각 타임스텝에서 정답 토큰과 예측 토큰 사이의 croww entropy 차이 계산 (정답에 가까울수록 loss 0에 수렴)
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
 
 def loss_function(y_true, y_pred):
@@ -113,13 +138,21 @@ def train_step(inp, tar):
 
     gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+
     return loss
 
 # 학습 루프
 for epoch in range(EPOCHS):
-    print(f'Epoch {epoch+1}/{EPOCHS}')
+    print(f'\nEpoch {epoch+1}/{EPOCHS}')
+    total_loss = 0
     for (batch, (inp, tar)) in enumerate(dataset):  
         loss = train_step(inp, tar)
+        total_loss += loss
+
+        if batch % 100 == 0:
+            print(f"  Batch {batch}, Loss: {loss.numpy():.4f}")
+
+    print(f"Epoch {epoch+1} Loss: {(total_loss / batch):.4f}")
 
 # 모델 저장
 os.makedirs('model', exist_ok=True)

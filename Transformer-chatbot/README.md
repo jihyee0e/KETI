@@ -3,6 +3,8 @@
 ## 📌 프로젝트 목적
 
   Transformer 기반 챗봇 구현: Transformer 구조를 구현하여 간단한 질의응답 챗봇을 만드는 학습용 프로젝트
+  - RAG(Retrieval-Augmented Generation)를 활용하여 외부 문서를 검색 후 문맥을 반영한 응답을 생성
+  - Agent (..ing)
 
 ## 📂 폴더 구조
 ```
@@ -13,6 +15,7 @@ Transformer-chatbot/
 │   ├── chatbot_model.keras  ← 학습된 모델 가중치 (.keras)
 │   └── tokenizer.pickle     ← 학습된 토크나이저 (.pickle)
 ├── src/
+│   ├── rag_index.py         ← 문서 임베딩 후 FAISS 인덱스 생성 (RAG 검색용)
 │   ├── run.py               ← 실행 제어
 │   ├── inference.py         ← 챗봇 응답 생성 (모델 + 토크나이저 불러와서 추론)
 │   ├── mask_schedule.py     ← 마스크 생성 및 커스텀 학습률 스케줄러 정의
@@ -47,6 +50,7 @@ Transformer-chatbot/
 ## 실행 순서
 ```
 $ pip install -r requirements.txt
+$ PYTHONPATH=. python3 src/run.py --rag_index  # 외부 문서 벡터화 + 검색 인덱스 생성
 $ PYTHONPATH=. python3 src/run.py --train  # 모델 생성
 $ PYTHONPATH=. python3 src/run.py  --inference  # 챗봇 실행
   - You > 입력 후 대화

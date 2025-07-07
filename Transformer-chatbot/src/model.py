@@ -1,5 +1,4 @@
 import tensorflow as tf
-import numpy as np
 from src.mask_schedule import create_padding_mask, create_look_ahead_mask
 
 # Positional Encoding
@@ -54,6 +53,10 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     self.wk = tf.keras.layers.Dense(d_model)
     self.wv = tf.keras.layers.Dense(d_model)
     self.dense = tf.keras.layers.Dense(d_model)
+    
+  def build(self, input_shape):
+        # Keras가 자동으로 Dense 레이어의 build를 호출하므로 pass만 해도 무방
+        super().build(input_shape)
 
   def split_heads(self, x, batch_size):
     x = tf.reshape(x, (batch_size, -1, self.num_heads, self.depth))

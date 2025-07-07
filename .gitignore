@@ -4,9 +4,9 @@ venv/
 # 캐시 및 바이너리
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-*.so
+# 시스템/로컬 툴 캐시
+.cache/
+*.log
 
 # 모델 파일
 *.h5
@@ -16,22 +16,11 @@ __pycache__/
 *.pth
 *.ckpt
 
-# 시스템/로컬 툴 캐시
-.cache/
-*.log
-
 # macOS 자동 생성 파일
 .DS_Store
 
-# 인증서, 개인 설정
-.AnySign4PC/
-
 *.csv
-.vscode/
-
-# MinIO 서버 데이터 (절대 올리면 안 됨)
-2506-week3/0619/data/
-2506-week3/0619/minio
-2506-week3/0619/test_files/
-
 *.txt
+
+data/
+rag/

@@ -3,6 +3,7 @@
 📌 주제: Transformer 기반 챗봇 구현
 ⏱ 진행 기간: 2025.06.10 ~ 2025.06.16
 📚 참고: Attention is All You Need, TensorFlow 공식 문서 및 튜토리얼
+🛠️ 기능 추가: RAG + Agent
 ```
 
 ### 📂 2506-week3
@@ -37,4 +38,11 @@
 👩🏻‍💻 파일명: (keti-private)
 📌 주제: 로컬 LLM 기반 데이터 분석 Agent
 📚 참고: keti llm 구현 Github code
+```
+
+
+### 📂 2507-week2
+```
+👩🏻‍💻 파일명: 0707
+📌 주제: 활성화 함수(GELU ↔ ReLU) 성능 비교
 ```
