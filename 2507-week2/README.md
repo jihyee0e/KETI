@@ -34,5 +34,8 @@
 - 학습 후, 동일한 입력 프롬프트에 대해 문장 생성 결과를 비교 출력
 
 ### 🔗 출력 예시
+<img width="197" height="33" alt="Image" src="https://github.com/user-attachments/assets/486d8702-06e3-45ec-9ad4-cdcfb946cf03" />
+<img width="552" height="203" alt="Image" src="https://github.com/user-attachments/assets/d54717ca-2d2f-4b3b-ad61-aa5f79013b3f" />
+
 
 <br>
