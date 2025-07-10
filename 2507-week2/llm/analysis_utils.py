@@ -37,6 +37,7 @@ def extract_text_from_file(file, sidebar_mode=False, idx=None, warn_duplicate=Tr
     if file.name.endswith(".csv"):
         try:
             df = pd.read_csv(file)
+            df.columns = [col.lower() for col in df.columns]
             if warn_duplicate:
                 ui.success(f"✅ CSV file upload successful: {file.name}")
             ui.write("Top 3 rows preview")
@@ -124,6 +125,11 @@ def run_analysis(df, content, filetype, llm, prompt_key="default", button_key="d
         Below is the user's question:
         {question}
 
+        All column names and string values in 'df' are lowercase only, and must be used **exactly as is**. 
+        Do not infer or rename columns (e.g., do not convert 'sex' to 'gender').
+        So always use lowercase when referencing column names or values.
+        If a column or value does not exist in df exactly as typed, do not assume or replace it with similar terms.
+
         If the user's question is a general greeting, small talk, or not related to data analysis, generate a polite Korean response 
         and assign it to a variable named `result_text`, and set `result = None`.
         Otherwise, write Python code using pandas to answer the question.
@@ -131,12 +137,23 @@ def run_analysis(df, content, filetype, llm, prompt_key="default", button_key="d
 
         Store the main result in a variable named `result`.
         Also generate a Korean explanation string and store it in `result_text`. 
+        The explanation stored in `result_text` must include:
+        - The total number of rows used for the calculation.
+        - The number of rows filtered (if filtering was done).
+        - The exact values used in any percentage or summary (e.g., counts or sums).
+        - Clear Korean sentences summarizing the result in context (e.g., 여성 인원은 총 20명이며 전체의 25%입니다).
+        - Do not repeat the result value alone; explain it in full context.
         The explanation should describe the exact process of how the result was calculated (e.g., filtering conditions, aggregation, groupings, etc). 
         Do not guess—base it strictly on the actual values in `result`.
         Make sure the values used in the explanation exactly match what’s shown in `result`.
 
         If the answer includes a plot, use matplotlib and show the plot.
         Only output the code, do not explain.
+
+        Make sure the values used in the explanation exactly match what’s shown in `result`.
+
+        If any division is performed, check if the denominator is zero before performing the operation.
+        If zero, set result = None and generate a proper Korean message in result_text explaining that calculation could not proceed due to lack of data.
         """
 
 
@@ -181,7 +198,8 @@ def run_analysis(df, content, filetype, llm, prompt_key="default", button_key="d
 
                 llm_output = chain.run({"data": content, "question": prompt})
                 code = robust_code_extractor(llm_output)
-                code = re.sub(r".*pd\\.read_csv\\(.*\\)\\s*", "", code)
+                # code = re.sub(r".*pd\\.read_csv\\(.*\\)\\s*", "", code)
+                code = re.sub(r"df\s*=\s*pd\.read_csv\(.*?\)", "", code)
 
                 try:
                     local_vars = {"df": df, "pd": pd}
@@ -191,21 +209,24 @@ def run_analysis(df, content, filetype, llm, prompt_key="default", button_key="d
 
                     if "result" in local_vars:
                         result = local_vars["result"]
-                        st.write("📊 **Analysis result:**")
-                        if isinstance(result, pd.DataFrame):
-                            st.dataframe(result, use_container_width=True)
-                        else:
-                            st.write(result)
-                    if "result_text" in local_vars:
-                        st.markdown("📝 **설명 결과:**")
-                        st.write(local_vars["result_text"])
+                        if result is not None:
+                            st.write("📊 **Analysis result:**")
+                            if isinstance(result, pd.DataFrame):
+                                st.dataframe(result, use_container_width=True)
+                            else:
+                                st.write(result)
 
-                    if plt.get_fignums():
+                    text = local_vars.get("result_text", "")
+                    if text:
+                        st.markdown("📝 **Explanation result:**")
+                        st.write(text)
+
+                    if result is not None and plt.get_fignums():
                         st.write("📈 **Visualization result:**")
                         st.pyplot(plt.gcf())
                         plt.clf()
 
-                    elif output.strip():
+                    elif result is not None and output.strip():
                         st.write("📋 **Output result:**")
                         st.write(output)
 
@@ -248,6 +269,3 @@ def display_uploaded_files(uploaded_files, llm, key_prefix="default", sidebar_mo
             button_key=f"button_{key_prefix}_{latest.name}_{latest_idx}",
             unique_id=f"{latest.name}_{latest_idx}"
         )
-
-# test 
-# 총 금액과 가장 비싼 물품 알려줘.
