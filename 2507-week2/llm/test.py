@@ -1,14 +1,7 @@
 import streamlit as st
 import pandas as pd
 from langchain_community.llms import Ollama
-from analysis_utils import extract_text_from_file, robust_code_extractor, run_analysis, display_uploaded_files
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-import io
-import contextlib
-import matplotlib.pyplot as plt
-import re
-import fitz  # PyMuPDF
+from analysis_utils import display_uploaded_files
 from analysis_utils import get_file_hash
 
 st.set_page_config(layout="wide")
@@ -20,7 +13,7 @@ st.sidebar.markdown("<br>", unsafe_allow_html=True)
 
 llm = Ollama(
     base_url="http://localhost:11434",
-    model="llama3.2:latest",
+    model="llama-3.2-korean-bllossom-3b:latest",
     temperature=0.3,
 )
 
@@ -67,9 +60,6 @@ if mode == "Combined View":
     if st.session_state.get("dedup_files"):
         display_uploaded_files(st.session_state["dedup_files"], llm, key_prefix="combined")
 
-# ------------------------------
-# Split view
-# ------------------------------
 # ------------------------------
 # Split view
 # ------------------------------
