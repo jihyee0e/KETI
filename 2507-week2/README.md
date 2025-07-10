@@ -69,5 +69,10 @@
 | `get_all_tools()`                 | 위 함수들을 LangChain용 Tool로 반환           |
 
 ### 🔗 출력 예시
+<1차>
+<img width="675" height="501" alt="Image" src="https://github.com/user-attachments/assets/ba7018ed-bf12-4d58-badf-9b6f88562b27" />
+<img width="673" height="419" alt="Image" src="https://github.com/user-attachments/assets/a34baabd-0b0e-44eb-a193-c211746d5e25" />
+<img width="499" height="266" alt="Image" src="https://github.com/user-attachments/assets/42e09fe3-67f9-40bb-99f4-1ee31b0b9be0" />
+<img width="680" height="556" alt="Image" src="https://github.com/user-attachments/assets/064cc4c4-2348-40de-9cd5-8033d70bdf08" />
 
 <br>
