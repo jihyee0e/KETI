@@ -53,9 +53,17 @@
 
 
 ### ✅ 실행
-1. 스크립트 실행
-```bash
-    python test.py
+1. matplotlib에 한글 폰트 설정
+```
+    1) mkdir -p ~/.fonts
+    2) cd ~/.fonts
+    3) https://github.com/naver/nanumfont 접속 후 파일 다운로드
+    4) unzip NanumGothicCoding-2.5.zip  # 압축 해제
+```
+
+2. 스크립트 실행
+```
+    streamlit run test.py
 ```
 
 ### 🔗 동작 방식
