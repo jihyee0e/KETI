@@ -21,6 +21,6 @@ __pycache__/
 
 *.csv
 
-
+.env
 data/
 rag/
