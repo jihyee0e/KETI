@@ -46,3 +46,9 @@
 👩🏻‍💻 파일명: 0707
 📌 주제: 활성화 함수(GELU ↔ ReLU) 성능 비교
 ```
+
+### 📂 final_llm
+```
+📌 주제: LLM chatbot
+    - csv에 중점을 둔 chatbot이라 기능 추가 필요
+📚 참고: keti llm 구현 코드
