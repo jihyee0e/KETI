@@ -3,7 +3,6 @@
 📌 주제: Transformer 기반 챗봇 구현
 ⏱ 진행 기간: 2025.06.10 ~ 2025.06.16
 📚 참고: Attention is All You Need, TensorFlow 공식 문서 및 튜토리얼
-🛠️ 기능 추가: RAG + Agent
 ```
 
 ### 📂 2506-week3
@@ -52,3 +51,4 @@
 📌 주제: LLM chatbot
     - csv에 중점을 둔 chatbot이라 기능 추가 필요
 📚 참고: keti llm 구현 코드
+🛠️ 기능 추가: 시각화, 답변 생성 속도 개선 등 진행 중 ..!
