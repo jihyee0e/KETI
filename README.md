@@ -34,15 +34,14 @@
 📚 참고: PandasAI 실습 Tistory, Ollama Github
 ```
 ```
-👩🏻‍💻 파일명: (keti-private)
-📌 주제: 로컬 LLM 기반 데이터 분석 Agent
-📚 참고: keti llm 구현 Github code
+👩🏻‍💻 파일명: 0624_langchain_test.py
+📌 주제: langchain, ollama test
 ```
 
 
 ### 📂 2507-week2
 ```
-👩🏻‍💻 파일명: 0707
+👩🏻‍💻 폴더명: 0707
 📌 주제: 활성화 함수(GELU ↔ ReLU) 성능 비교
 ```
 ```
