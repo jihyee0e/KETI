@@ -11,13 +11,13 @@
 
 
 ### ✅ 실행
-1. 스크립트 실행
+스크립트 실행
 ```bash
-    python3 per-test.py      # 단일 zip 검사
-    python3 total-test.py    # 전체 디렉토리 재귀 zip 검사
+python3 per-test.py      # 단일 zip 검사
+python3 total-test.py    # 전체 디렉토리 재귀 zip 검사
 ```
 
-### 🔗 출력 예시
+### 🔗 로그 저장 예시
 <img width="1288" height="483" alt="Image" src="https://github.com/user-attachments/assets/04e34432-7f75-430e-93e2-9371ca289661" />
 
 <br>
