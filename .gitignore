@@ -1,22 +1,18 @@
-# 가상환경
 venv/
-# 캐시 및 바이너리
 __pycache__/
 *.pyc
-# 시스템/로컬 툴 캐시
 .cache/
 *.log
-# 모델 파일
 *.h5
 *.keras
 *.pt
 *.pickle
 *.pth
 *.ckpt
-# macOS 자동 생성 파일
 .DS_Store
 *.csv
 .env
 data/
 rag/
 *.txt
+final_llm/dashboard_view.py

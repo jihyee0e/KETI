@@ -14,8 +14,7 @@ final_llm/
 ├── components/
 │   └── file_manager.py      # 파일 업로드 및 미리보기 컴포넌트
 ├── pages/
-│   ├── chatbot_view.py      # 챗봇 UI 및 LLM 연동
-│   └── dashboard_view.py    # 데이터 시각화 대시보드
+│   └── chatbot_view.py      # 챗봇 UI 및 LLM 연동
 ├── utils/
 │   ├── common.py            # 세션 데이터 저장 등 공통 유틸
 │   └── file_utils.py        # 파일 중복 제거 등 파일 유틸
